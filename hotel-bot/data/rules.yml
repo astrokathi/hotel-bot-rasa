@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  condition:
+  - active_loop: booking_form
+  steps:
+    # Form is deactivated
+    - action: booking_form
+    # The actions we want to run when the form is submitted.
+    - active_loop: null
+    - action: utter_submit
+    - action: utter_slot_values
+    - action: action_restart
+    - slot_was_set:
+        - reservation_type: null
+        - person_name: null
+        - num_people: null
+        - num_rooms: null
+        - start_date: null
+        - end_date: null
+

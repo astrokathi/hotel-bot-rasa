@@ -1,0 +1,146 @@
+version: '3.1'
+intents:
+- goodbye
+- greet
+- reservation
+- reservation_amenities
+- reservation_faq_checkin_checkout_times
+- reservation_faq_payment_info
+- reservation_faq_room_service
+- reservation_name
+- inform_number_of_guests
+- inform_number_of_rooms
+- inform_number_of_guests_and_rooms
+- reservation_room_type
+- reservation_time_period
+- thanks
+entities:
+- person_name
+- reservation_type
+- date
+- reason
+- number_of_guests
+- number_of_rooms
+- room_type
+- room_amenity
+- faq_check_in_out_time
+- faq_payment
+- payment_type
+- faq_room_service_frequency
+- faq_room_service
+actions:
+- utter_fallback
+- utter_goodbye
+- utter_ask_booking_form_person_name
+- utter_ask_booking_form_num_rooms
+- utter_ask_booking_form_num_people
+- utter_ask_booking_form_start_date
+- utter_ask_booking_form_end_date
+- utter_submit
+- utter_slot_values
+- action_restart
+
+responses:
+  utter_goodbye:
+  - text: Bye
+  utter_fallback:
+  - text: Could you please repeat that again?
+  utter_ask_booking_form_person_name:
+  - text: Could you please provide your name for the {reservation_type}?
+  utter_ask_booking_form_num_rooms:
+  - text: Could you please let me know how many {reservation_type} do you need?
+  utter_ask_booking_form_num_people:
+  - text: Could you please let me know how many people do you need {reservation_type} for?
+  utter_ask_booking_form_start_date:
+  - text: Could you please provide the start date of your {reservation_type}?
+  utter_ask_booking_form_end_date:
+  - text: Could you please provide the end date of your {reservation_type}?
+  utter_submit:
+  - text: All the values are submitted
+  utter_slot_values:
+  - text: These are the filled slot values {reservation_type}, {person_name}, {num_rooms}, {num_people}, {start_date}, {end_date}
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+config:
+  store_entities_as_slots: true
+
+slots:
+  person_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: person_name
+        influence_conversation: true
+
+  reservation_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: reservation_type
+        influence_conversation: true
+
+  reason:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: reason
+        influence_conversation: false
+
+  num_rooms:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_rooms
+        influence_conversation: true
+
+  num_people:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_guests
+        influence_conversation: true
+
+  room_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type
+        influence_conversation: false
+
+  room_amenity:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_amenity
+        influence_conversation: false
+
+  start_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        role: start_date
+        influence_conversation: false
+
+  end_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        role: end_date
+        influence_conversation: false
+
+forms:
+  booking_form:
+    ignored_intents:
+      - reservation_faq_checkin_checkout_times
+      - reservation_faq_payment_info
+      - reservation_faq_room_service
+    required_slots:
+      - reservation_type
+      - person_name
+      - num_people
+      - start_date
+      - end_date
+      - num_rooms

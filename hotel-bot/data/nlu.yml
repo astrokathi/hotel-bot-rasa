@@ -1,0 +1,125 @@
+version: "3.1"
+nlu:
+- intent: reservation
+  examples: |
+    - I need a [reservation](reservation_type)
+    - I need to book a [room](reservation_type) for my [vacation](reason)
+    - I want a [rooms](reservation_type) for a [business meeting](reason)
+    - I want [room](reservation_type) for work
+    - I need [accommodation](reservation_type)
+    - I need a [stay](reservation_type)
+    - I need to book [rooms](reservation_type)
+    - I need to book a [room](reservation_type) in your hotel
+    - I need to book a [room](reservation_type)
+    - I want a [room](reservation_type) for one night
+- intent: reservation_name
+  examples: |
+    - my name is [Kathi Sai Sravan](person_name)
+    - my name is [Paru](person_name)
+    - my name is [Ponky](person_name)
+    - I go by name [Nicolas Tesla](person_name)
+    - [Itachi Uchiha](person_name)
+    - [Kathi](person_name)
+    - [kathi](person_name)
+- intent: reservation_time_period
+  examples: |
+    - from [23rd of this month]{"entity": "date", "role": "start_date"} to [24th of the next month]{"entity": "date", "role": "end_date"}
+    - from [12/06]{"entity": "date", "role": "start_date"} to [13/07]{"entity": "date", "role": "end_date"}
+    - [23/05]{"entity": "date", "role": "start_date"} - [28/05]{"entity": "date", "role": "end_date"}
+    - from [23/05]{"entity": "date", "role": "start_date"} - [28/05/2023]{"entity": "date", "role": "end_date"}
+    - From [23/08]{"entity": "date", "role": "start_date"} to [12/09/2023]{"entity": "date", "role": "end_date"}
+
+- intent: inform_number_of_guests
+  examples: |
+    - I'll be staying with [5](number_of_guests) guests.
+    - There will be [3](number_of_guests) people.
+    - [2](number_of_guests) adults and [1](number_of_guests) child.
+    - We are a group of [6](number_of_guests) friends.
+    - The total number of guests is [4](number_of_guests).
+
+- intent: inform_number_of_rooms
+  examples: |
+    - I need [2](number_of_rooms) rooms.
+    - [1](number_of_rooms) double room, please.
+    - We require [3](number_of_rooms) single rooms.
+    - [4](number_of_rooms) rooms for the family.
+    - Can I book [1](number_of_rooms) suite?
+
+- intent: inform_number_of_guests_and_rooms
+  examples: |
+    - We'll need [3](number_of_rooms) rooms for [6](number_of_guests) guests.
+    - [4](number_of_rooms) rooms and [8](number_of_guests) guests.
+    - [2](number_of_rooms) rooms and [5](number_of_guests) people.
+    - We are [10](number_of_guests) guests and need [5](number_of_rooms) rooms.
+    - [3](number_of_rooms) rooms for [7](number_of_guests) adults and [2](number_of_guests) children.
+
+- intent: reservation_room_type
+  examples: |
+    - I need a [deluxe](room_type) [room](reservation_type)
+    - I want a [super deluxe](room_type) [room](reservation_type)
+    - [studio](room_type) [room](reservation_type)
+    - I need [king sized bed](room_type)
+    - I need [twin bed](room_type)
+- intent: reservation_amenities
+  examples: |
+    - [sea view](room_amenity) and [balcony](room_amenity)
+    - [city view](room_amenity)
+    - [sunrise view](room_amenity)
+    - [recreation room](room_amenity)
+    - [business center](room_amenity)
+    - [parking](room_amenity)
+    - 24/7 [room service](room_amenity)
+- intent: reservation_faq_checkin_checkout_times
+  examples: |
+    - what are the [checkin timings](faq_check_in_out_time)
+    - what is the [checkin time](faq_check_in_out_time)
+    - [checkout timings](faq_check_in_out_time)
+    - [timing to get into](faq_check_in_out_time) the room
+    - [timing to vacate](faq_check_in_out_time) the room
+- intent: reservation_faq_payment_info
+  examples: |
+    - how to process the [payment](faq_payment)
+    - can [payment](faq_payment) be done [online](payment_type)
+    - can we [pay](faq_payment) using the [cash](payment_type)
+    - [payment](faq_payment) services available
+- intent: reservation_faq_room_service
+  examples: |
+    - how [frequently](faq_room_service_frequency) the room is [cleaned](faq_room_service)?
+    - can the room be [cleaned](faq_room_service) [twice](faq_room_service_frequency)
+    - room to be [cleaned](faq_room_service)
+    - room is [dirty](faq_room_service)
+    - water is [leaking](faq_room_service)
+    - shower is [not closing](faq_room_service)
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Thanks
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Done
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thanks for doing my work

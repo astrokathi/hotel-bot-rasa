@@ -1,0 +1,39 @@
+reservation:
+  - room
+  - Room
+  - Rooms
+  - rooms
+  - booking
+  - Booking
+  - bookings
+  - Bookings
+  - stay
+  - stays
+  - Stay
+  - Stays
+  - Reservation
+  - reservations
+  - Reservations
+
+room:
+  - reservation
+
+adult:
+  - adults
+  - Adults
+  - 18+
+  - Grown
+  - grown
+
+child:
+  - Kid
+  - kid
+  - Kids
+  - kids
+  - Child
+  - Children
+  - children
+  - Kinder
+  - kinder
+  - childs
+  - Childs
