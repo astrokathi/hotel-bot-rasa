@@ -2,14 +2,51 @@ version: "3.1"
 
 stories:
 
-- story: User fills the form and starts a new session
-  steps:
-    - intent: reservation
-      entities:
-        - reservation_type: room
-    - action: booking_form
-    - active_loop: booking_form
-    - slot_was_set:
-        - requested_slot
+#- story: User fills the form and restarts a new session once the form is completely filled
+#  steps:
+#    - intent: reservation
+#      entities:
+#        - reservation_type: room
+#    - action: booking_form
+#    - active_loop: booking_form
+#    - slot_was_set:
+#        - requested_slot: person_name
+#    - intent: reservation_name
+#      entities:
+#        - person_name: kathi
+#    - action: booking_form
+#    - active_loop: booking_form
+#    - slot_was_set:
+#        - requested_slot: num_people
+#    - intent: inform_number_of_guests
+#      entities:
+#        - number_of_guests: 9
+#    - action: booking_form
+#    - active_loop: booking_form
+#    - slot_was_set:
+#        - requested_slot: start_date
+#    - intent: reservation_time_period
+#      entities:
+#        - date: 23rd June
+#          role: start_date
+#    - action: booking_form
+#    - active_loop: booking_form
+#    - slot_was_set:
+#        - requested_slot: end_date
+#    - intent: reservation_time_period
+#      entities:
+#        - date: 24th June
+#          role: end_date
+#    - action: booking_form
+#    - active_loop: booking_form
+#    - slot_was_set:
+#        - requested_slot: num_rooms
+#    - intent: inform_number_of_rooms
+#      entities:
+#        - number_of_rooms: 5
+#    - action: booking_form
+#    - action: utter_submit
+#    - action: utter_slot_values
+#    - action: action_restart
 
 

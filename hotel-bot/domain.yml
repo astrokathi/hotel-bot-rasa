@@ -59,6 +59,8 @@ responses:
   - text: All the values are submitted
   utter_slot_values:
   - text: These are the filled slot values {reservation_type}, {person_name}, {num_rooms}, {num_people}, {start_date}, {end_date}
+  utter_checking_times:
+  - text: The checking times are from 11:00 AM - 12:00 AM
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
