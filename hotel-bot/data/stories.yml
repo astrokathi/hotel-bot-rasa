@@ -49,4 +49,30 @@ stories:
 #    - action: utter_slot_values
 #    - action: action_restart
 
+- story: User asks for checking times
+  steps:
+    - intent: reservation_faq_checkin_checkout_times
+      entities:
+        - faq_check_in_out_time: checkin timings
+    - action: utter_checking_times
+    - action: utter_anything_else
+    - action: action_listen
+
+- story: User asks for payment info
+  steps:
+    - intent: reservation_faq_payment_info
+      entities:
+        - faq_payment: payment
+    - action: utter_payment_information
+    - action: utter_anything_else
+    - action: action_listen
+
+- story: User asks for room service
+  steps:
+    - intent: reservation_faq_room_service
+      entities:
+        - faq_room_service: cleaned
+    - action: utter_room_service_information
+    - action: utter_anything_else
+    - action: action_listen
 

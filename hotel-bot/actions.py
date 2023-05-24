@@ -42,7 +42,7 @@ class RestartConversation(Action):
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Restarting the conversation...")
+        dispatcher.utter_message(template='utter_anything_else')
         return [Restarted()]
 
 

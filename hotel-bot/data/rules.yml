@@ -53,3 +53,39 @@ rules:
   # Return to form after handling the `chitchat` intent
   - action: booking_form
   - active_loop: booking_form
+
+- rule: Example of an unhappy path handling faq payment information
+  condition:
+  # Condition that form is active.
+  - active_loop: booking_form
+  steps:
+  # This unhappy path handles the case of an intent `chitchat`.
+  - intent: reservation_faq_payment_info
+  - action: utter_payment_information
+  # Return to form after handling the `chitchat` intent
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Example of an unhappy path handling faq payment information
+  condition:
+  # Condition that form is active.
+  - active_loop: booking_form
+  steps:
+  # This unhappy path handles the case of an intent `chitchat`.
+  - intent: reservation_faq_payment_info
+  - action: utter_payment_information
+  # Return to form after handling the `chitchat` intent
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Example of an unhappy path handling faq room service
+  condition:
+  # Condition that form is active.
+  - active_loop: booking_form
+  steps:
+  # This unhappy path handles the case of an intent `chitchat`.
+  - intent: reservation_faq_room_service
+  - action: utter_room_service_information
+  # Return to form after handling the `chitchat` intent
+  - action: booking_form
+  - active_loop: booking_form
