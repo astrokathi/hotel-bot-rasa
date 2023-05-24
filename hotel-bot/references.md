@@ -13,3 +13,4 @@ https://botfront.io/docs/installation/local-machine
 https://forum.rasa.com/t/typeerror-on-rasa-3-0-nonetype-object-is-not-callable/50360/22
 (probably will work)
 
+https://github.com/JiteshGaikwad/Chatbot-Widget/blob/main/docs/instructions.md

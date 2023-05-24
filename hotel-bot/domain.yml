@@ -67,6 +67,8 @@ responses:
   - text: You can pay at the reception at the time of checkin.
   utter_room_service_information:
   - text: Room service is available 24x7, please call 09 from your landline and hospitality person would attend your room for cleaning.
+  utter_welcome_message:
+  - text: I am Hotel Bot, I am here to help you with your booking process and answer FAQs related to the Services.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
