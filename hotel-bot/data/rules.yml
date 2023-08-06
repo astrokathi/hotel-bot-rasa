@@ -2,25 +2,6 @@ version: "3.1"
 
 rules:
 
-#- rule: Say goodbye anytime the user says goodbye
-#  condition:
-#  - active_loop: booking_form
-#  steps:
-#    # Form is deactivated
-#    - action: booking_form
-#    # The actions we want to run when the form is submitted.
-#    - active_loop: null
-#    - action: utter_submit
-#    - action: utter_slot_values
-#    - action: action_restart
-#    - slot_was_set:
-#        - reservation_type: null
-#        - person_name: null
-#        - num_people: null
-#        - num_rooms: null
-#        - start_date: null
-#        - end_date: null
-
 - rule: Activate form
   steps:
   - intent: reservation
@@ -29,63 +10,46 @@ rules:
 
 - rule: Submit form
   condition:
-  # Condition that form is active.
   - active_loop: booking_form
   steps:
-  # Form is deactivated
   - action: booking_form
   - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  # The actions we want to run when the form is submitted.
   - action: utter_submit
   - action: utter_slot_values
   - action: action_restart
 
 - rule: Example of an unhappy path handling faq checking timings
   condition:
-  # Condition that form is active.
   - active_loop: booking_form
   steps:
-  # This unhappy path handles the case of an intent `chitchat`.
   - intent: reservation_faq_checkin_checkout_times
   - action: utter_checking_times
-  # Return to form after handling the `chitchat` intent
   - action: booking_form
   - active_loop: booking_form
 
 - rule: Example of an unhappy path handling faq payment information
   condition:
-  # Condition that form is active.
   - active_loop: booking_form
   steps:
-  # This unhappy path handles the case of an intent `chitchat`.
   - intent: reservation_faq_payment_info
   - action: utter_payment_information
-  # Return to form after handling the `chitchat` intent
   - action: booking_form
   - active_loop: booking_form
 
 - rule: Example of an unhappy path handling faq payment information
   condition:
-  # Condition that form is active.
   - active_loop: booking_form
   steps:
-  # This unhappy path handles the case of an intent `chitchat`.
   - intent: reservation_faq_payment_info
   - action: utter_payment_information
-  # Return to form after handling the `chitchat` intent
   - action: booking_form
   - active_loop: booking_form
 
 - rule: Example of an unhappy path handling faq room service
   condition:
-  # Condition that form is active.
   - active_loop: booking_form
   steps:
-  # This unhappy path handles the case of an intent `chitchat`.
   - intent: reservation_faq_room_service
   - action: utter_room_service_information
-  # Return to form after handling the `chitchat` intent
   - action: booking_form
   - active_loop: booking_form

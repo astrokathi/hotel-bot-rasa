@@ -105,7 +105,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-    - Thanks
 - intent: goodbye
   examples: |
     - cu

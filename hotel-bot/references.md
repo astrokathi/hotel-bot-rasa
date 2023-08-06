@@ -14,3 +14,5 @@ https://forum.rasa.com/t/typeerror-on-rasa-3-0-nonetype-object-is-not-callable/5
 (probably will work)
 
 https://github.com/JiteshGaikwad/Chatbot-Widget/blob/main/docs/instructions.md
+
+https://medium.com/@adboio/using-duckling-to-extract-dates-and-times-in-your-rasa-chatbot-7687f4fde2e0
