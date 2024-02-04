@@ -2,6 +2,11 @@ version: "3.1"
 
 rules:
 
+- rule: welcome user
+  steps:
+    - intent: greet
+    - action: utter_welcome_message
+
 - rule: Activate form
   steps:
   - intent: reservation
@@ -16,7 +21,7 @@ rules:
   - active_loop: null
   - action: utter_submit
   - action: utter_slot_values
-  - action: action_restart
+  - action: action_restarts
 
 - rule: Example of an unhappy path handling faq checking timings
   condition:
@@ -24,15 +29,6 @@ rules:
   steps:
   - intent: reservation_faq_checkin_checkout_times
   - action: utter_checking_times
-  - action: booking_form
-  - active_loop: booking_form
-
-- rule: Example of an unhappy path handling faq payment information
-  condition:
-  - active_loop: booking_form
-  steps:
-  - intent: reservation_faq_payment_info
-  - action: utter_payment_information
   - action: booking_form
   - active_loop: booking_form
 

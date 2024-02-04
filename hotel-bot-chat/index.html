@@ -10,9 +10,13 @@
     (e.onload = () => {
       window.WebChat.default(
         {
-          initPayload: "/utter_anything_else",
+          initPayload: "/greet",
           socketUrl: "http://localhost:5005/",
-          title: "Hotel Booking"
+          title: "Hotel Bot",
+          showMessageDate: true,
+          inputTextFieldHint: "Ask Hotel Bot...",
+          profileAvatar: "https://png.pngtree.com/png-vector/20190623/ourlarge/pngtree-hotel-sign-icon-png-image_1511483.jpg",
+          // embedded: true
           // add other props here
         },
         null

@@ -19,31 +19,69 @@ nlu:
     - my name is [Ponky](person_name)
     - I go by name [Nicolas Tesla](person_name)
     - [Itachi Uchiha](person_name)
-    - [Kathi](person_name)
+    - I am called [Kathi](person_name)
     - [kathi](person_name)
 - intent: reservation_time_period
   examples: |
-    - from [23rd of this month]{"entity": "date", "role": "start_date"} to [24th of the next month]{"entity": "date", "role": "end_date"}
-    - from [12/06]{"entity": "date", "role": "start_date"} to [13/07]{"entity": "date", "role": "end_date"}
-    - [23/05]{"entity": "date", "role": "start_date"} - [28/05]{"entity": "date", "role": "end_date"}
-    - from [23/05]{"entity": "date", "role": "start_date"} - [28/05/2023]{"entity": "date", "role": "end_date"}
-    - From [23/08]{"entity": "date", "role": "start_date"} to [12/09/2023]{"entity": "date", "role": "end_date"}
+
+    - I'll be traveling from [15-05-2023]{"entity": "date", "role": "startdate"} to [20-05-2023]{"entity": "date", "role": "enddate"}.
+    - Our trip is planned for [10-06-2024]{"entity": "date", "role": "startdate"} to [15-06-2024]{"entity": "date", "role": "enddate"}.
+    - The reservation is from [01-08-2023]{"entity": "date", "role": "startdate"} until [05-08-2023]{"entity": "date", "role": "enddate"}.
+    - We'll be staying starting [01-12-2023]{"entity": "date", "role": "startdate"} until [07-12-2023]{"entity": "date", "role": "enddate"}.
+    - From [10-09-2024]{"entity": "date", "role": "startdate"} to [15-09-2024]{"entity": "date", "role": "enddate"}, we'll be on vacation.
+    - The event is scheduled for [25-11-2023]{"entity": "date", "role": "startdate"} - [27-11-2023]~){"entity": "date", "role": "enddate"}.
+    - [05-06-2023]{"entity": "date", "role": "startdate"} to [10-06-2023]{"entity": "date", "role": "enddate"} is the date range.
+    - Our stay spans from [20-07-2023]{"entity": "date", "role": "startdate"} to [25-07-2023]{"entity": "date", "role": "enddate"}.
+    - Starting [15-03-2024]{"entity": "date", "role": "startdate"} until [20-03-2024]{"entity": "date", "role": "enddate"}, we'll be away.
+    - We'll be gone from [05-09-2023]{"entity": "date", "role": "startdate"} to [10-09-2023]{"entity": "date", "role": "enddate"}.
+    - The meeting is scheduled for [28/02/2023]{"entity": "date", "role": "startdate"} - [03/03/2023]{"entity": "date", "role": "enddate"}.
+    - Our vacation is planned from [12/04/2024]{"entity": "date", "role": "startdate"} to [18/04/2024]{"entity": "date", "role": "enddate"}.
+
 
 - intent: inform_number_of_guests
   examples: |
     - I'll be staying with [5](number_of_guests) guests.
-    - There will be [3](number_of_guests) people.
-    - [2](number_of_guests) adults and [1](number_of_guests) child.
-    - We are a group of [6](number_of_guests) friends.
-    - The total number of guests is [4](number_of_guests).
-
+    - We have a group of [8](number_of_guests) guests arriving. 
+    - There will be [3](number_of_guests) of us staying at the hotel.
+    - Our party includes [6](number_of_guests) guests.
+    - I am planning to book for [2](number_of_guests) people.
+    - [4](number_of_guests) guests will be staying in total.
+    - It's a reservation for [7](number_of_guests) guests.
+    - We need accommodations for [10](number_of_guests) people.
+    - [1](number_of_guests) guest will be checking in.
+    - Including me, there will be [9](number_of_guests) guests staying.
+    
 - intent: inform_number_of_rooms
   examples: |
     - I need [2](number_of_rooms) rooms.
-    - [1](number_of_rooms) double room, please.
-    - We require [3](number_of_rooms) single rooms.
-    - [4](number_of_rooms) rooms for the family.
-    - Can I book [1](number_of_rooms) suite?
+      - number_of_rooms: 2
+    
+    - We would like to book [3](number_of_rooms) rooms.
+      - number_of_rooms: 3
+    
+    - For our stay, we require [1](number_of_rooms) room.
+      - number_of_rooms: 1
+    
+    - [4](number_of_rooms) rooms are needed for our group.
+      - number_of_rooms: 4
+    
+    - Can I reserve [5](number_of_rooms) rooms, please?
+      - number_of_rooms: 5
+    
+    - We are looking to book [2](number_of_rooms) rooms for our stay.
+      - number_of_rooms: 2
+    
+    - I'll be needing accommodations with [3](number_of_rooms) rooms.
+      - number_of_rooms: 3
+    
+    - Our reservation is for [1](number_of_rooms) room.
+      - number_of_rooms: 1
+    
+    - [6](number_of_rooms) rooms will be required for our group.
+      - number_of_rooms: 6
+    
+    - I'm booking for [4](number_of_rooms) rooms.
+      - number_of_rooms: 4
 
 - intent: inform_number_of_guests_and_rooms
   examples: |

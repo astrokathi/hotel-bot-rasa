@@ -1,6 +1,5 @@
 version: '3.1'
 intents:
-- goodbye
 - greet
 - reservation
 - reservation_amenities
@@ -13,6 +12,7 @@ intents:
 - inform_number_of_guests_and_rooms
 - reservation_room_type
 - reservation_time_period
+- goodbye
 - thanks
 entities:
 - person_name
@@ -38,27 +38,39 @@ actions:
 - utter_ask_booking_form_end_date
 - utter_submit
 - utter_slot_values
-- action_restart
+- action_restarts
 
 responses:
   utter_goodbye:
   - text: Bye
+  utter_thanks:
+  - text: I am glad that I helped you!
   utter_fallback:
   - text: Could you please repeat that again?
   utter_ask_booking_form_person_name:
   - text: Could you please provide your name for the {reservation_type}?
   utter_ask_booking_form_num_rooms:
-  - text: Could you please let me know how many {reservation_type} do you need?
+  - text: | 
+      {person_name}, could you please let me know how many rooms do you need?
   utter_ask_booking_form_num_people:
-  - text: Could you please let me know how many people do you need {reservation_type} for?
+  - text: |
+      {person_name}, could you please let me know how many people do you need {reservation_type} for?
   utter_ask_booking_form_start_date:
-  - text: Could you please provide the start date of your {reservation_type}?
+  - text: |
+      {person_name}, could you please provide the start date of your {reservation_type}?
   utter_ask_booking_form_end_date:
-  - text: Could you please provide the end date of your {reservation_type}?
+  - text: |
+      {person_name}, could you please provide the end date of your {reservation_type}?
   utter_submit:
   - text: All the values are submitted
   utter_slot_values:
-  - text: These are the filled slot values {reservation_type}, {person_name}, {num_rooms}, {num_people}, {start_date}, {end_date}
+  - text: |
+      #### {person_name}, thanks for booking with the Hotel bot!
+      #### The {reservation_type} details are:
+      #### No. of Rooms - {num_rooms}
+      #### No. of People - {num_people}
+      #### Start date of the reservation - {start_date}
+
   utter_checking_times:
   - text: The checking times are from 11:00 AM - 12:00 AM
   utter_anything_else:
@@ -68,7 +80,7 @@ responses:
   utter_room_service_information:
   - text: Room service is available 24x7, please call 09 from your landline and hospitality person would attend your room for cleaning.
   utter_welcome_message:
-  - text: I am Hotel Bot, I am here to help you with your booking process and answer FAQs related to the Services.
+  - text: I am Hotel Bot, I am here to help you with your booking process and answer FAQs related to the payments and checkin timings.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -126,19 +138,21 @@ slots:
         influence_conversation: false
 
   start_date:
-    type: text
+    type: any
     mappings:
       - type: from_entity
         entity: date
-        role: start_date
+        role: startdate
+        intent: reservation_time_period
         influence_conversation: false
 
   end_date:
-    type: text
+    type: any
     mappings:
       - type: from_entity
         entity: date
-        role: end_date
+        role: enddate
+        intent: reservation_time_period
         influence_conversation: false
 
 forms:
@@ -152,5 +166,4 @@ forms:
       - person_name
       - num_people
       - start_date
-      - end_date
       - num_rooms
